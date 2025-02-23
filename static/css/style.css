@@ -1,0 +1,127 @@
+:root {
+    /* Paleta de colores vibrante y moderna */
+    --primary-color: #FF7EB6;    /* Rosa moderno */
+    --secondary-color: #7AF2FF;  /* Azul claro */
+    --accent-color: #FF65A3;     /* Rosa más intenso */
+    --background-gradient: linear-gradient(45deg, #fff5f5 0%, #f7f9ff 100%);
+    --text-color: #2E2E2E;
+    --soft-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --spacing-unit: 1.5rem;
+    --border-radius: 20px;
+    --transition-fast: 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: var(--spacing-unit) 0;
+    background-image: var(--background-gradient);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin: 1.5em 0;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0 rgba(255, 126, 182, 0.1);
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 0.5em auto;
+    border-radius: 2px;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin-bottom: 1em;
+    position: relative;
+    padding-left: 1rem;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    height: 0.8em;
+    width: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+article {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    margin: var(--spacing-unit) auto;
+    padding: calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius);
+    box-shadow: var(--soft-shadow);
+    max-width: 800px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: var(--spacing-unit) 0;
+    transition: transform var(--transition-fast);
+}
+
+img:hover {
+    transform: scale(1.02);
+}
+
+/* Efectos modernos */
+@media (prefers-reduced-motion: no-preference) {
+    article {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+}
+
+/* Mejoras de tipografía */
+p {
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+}
+
+/* Personalización de enlaces */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width var(--transition-fast);
+}
+
+a:hover::after {
+    width: 100%;
+}
