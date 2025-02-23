@@ -25,8 +25,13 @@ SECRET_KEY = 'django-insecure-rkr#q1i!o63x5y#f2=-jmlki1&qfx2f@6$(lpeo-+=f4us*&*#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+DOCKER_USER = "frantracer"
 
+DOMAIN = f"{DOCKER_USER}-django-girls-valencia.onrender.com"
+
+ALLOWED_HOSTS = [DOMAIN, "localhost", "127.0.0.1"]
+
+CSRF_TRUSTED_ORIGINS = [f"https://{DOMAIN}"]
 
 # Application definition
 
